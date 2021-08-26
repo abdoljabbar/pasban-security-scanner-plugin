@@ -2,6 +2,7 @@
 phpcs.xml
 phpunit.xml
 Thumbs.db
+package-lock.json
 wp-cli.local.yml
 node_modules/
 *.sql

@@ -103,7 +103,7 @@ e.g.
 
 
 
-= A question that someone might have =
+### A question that someone might have ###
 
 
 
@@ -111,7 +111,7 @@ An answer to that question.
 
 
 
-= What about foo bar? =
+### What about foo bar? ###
 
 
 
@@ -138,7 +138,7 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 
 
-= 1.0 =
+### 1.0 ###
 
 * A change since the previous version.
 
@@ -146,29 +146,29 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 
 
-= 0.5 =
+### 0.5 ###
 
 * List versions from most recent at top to oldest at bottom.
 
 
 
-== Upgrade Notice ==
+## Upgrade Notice ##
 
 
 
-= 1.0 =
+### 1.0 ###
 
 Upgrade notices describe the reason a user should upgrade. No more than 300 characters.
 
 
 
-= 0.5 =
+### 0.5 ###
 
 This version fixes a security related bug. Upgrade immediately.
 
 
 
-== Arbitrary section ==
+## Arbitrary section ##
 
 
 
