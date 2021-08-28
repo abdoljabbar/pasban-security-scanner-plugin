@@ -14,6 +14,11 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
-<header class="pasban-header">
-	<h1>Pasban Security Scanner</h1>
-</header>
+<section id="pasbn-content">
+	<header class="pasban-header">
+		<h1>PASBAN SECURITY SCANNER</h1>
+	</header>
+	<div class="pasban-body">
+		<p>ARE YOU READY<span class="mark-question">?</span></p>
+	</div>
+</section>
