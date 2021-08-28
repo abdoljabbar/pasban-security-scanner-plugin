@@ -1,16 +1,22 @@
 {
-  "name": "pasban-security-scanner",
-  "version": "0.1.0",
-  "main": "Gruntfile.js",
-  "author": "YOUR NAME HERE",
-  "scripts": {
-    "start": "grunt default",
-    "readme": "grunt readme",
-    "i18n": "grunt i18n"
-  },
-  "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-wp-i18n": "~0.5.0",
-    "grunt-wp-readme-to-markdown": "~1.0.0"
-  }
+    "name": "pasban-security-scanner",
+    "version": "0.1.0",
+    "main": "Gruntfile.js",
+    "author": "YOUR NAME HERE",
+    "scripts": {
+        "start": "grunt default",
+        "readme": "grunt readme",
+        "i18n": "grunt i18n",
+        "bootstrap:copycss": "cp ./node_modules/bootstrap/dist/css/bootstrap.min.css ./admin/css/lib/",
+        "bootstrap:copyjs": "cp ./node_modules/bootstrap/dist/js/bootstrap.min.js ./admin/js/lib/",
+        "bootstrap:all": "npm run bootstrap:copycss && npm run bootstrap:copyjs"
+    },
+    "devDependencies": {
+        "grunt": "^1.4.1",
+        "grunt-wp-i18n": "^1.0.3",
+        "grunt-wp-readme-to-markdown": "^2.0.1"
+    },
+    "dependencies": {
+        "bootstrap": "^5.1.0"
+    }
 }

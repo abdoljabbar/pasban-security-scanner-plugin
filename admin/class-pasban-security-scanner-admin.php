@@ -60,9 +60,8 @@ class Pasban_Security_Scanner_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-
 		// check if we are in pasban admin page then insert style
-		if (get_current_screen()->id !== 'pasban-security-admin-page') {
+		if (get_current_screen()->id !== 'toplevel_page_admin-pasban-security-scanner') {
 			return;
 		}
 
@@ -78,7 +77,7 @@ class Pasban_Security_Scanner_Admin {
 	public function enqueue_scripts() {
 
 		// check if we are in pasban admin page then insert script
-		if (get_current_screen()->id !== 'pasban-security-admin-page') {
+		if (get_current_screen()->id !== 'toplevel_page_admin-pasban-security-scanner') {
 			return;
 		}
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/pasban-security-scanner-admin.js', array( 'jquery' ), $this->version, false );
@@ -93,12 +92,12 @@ class Pasban_Security_Scanner_Admin {
 	 */
 
 	 public function register_pasban_menu() {
-		//  wp_die('menu');
 		 add_menu_page(
+			//  todo	add translation
 			 __('Pasban Security Scanner', 'pasban-security-scanner'),
 			 __('Pasban Scanner', 'pasban-security-scanner'),
 			 'manage_options',
-			 'manage_pasban_security',
+			 'admin-pasban-security-scanner',
 			 array($this, 'pasban_setting_page'),
 			 'dashicons-tagcloud',
 			 6

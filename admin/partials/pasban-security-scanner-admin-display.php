@@ -14,3 +14,6 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
+<header class="pasban-header">
+	<h1>Pasban Security Scanner</h1>
+</header>
