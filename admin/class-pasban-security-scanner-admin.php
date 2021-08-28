@@ -85,4 +85,36 @@ class Pasban_Security_Scanner_Admin {
 
 	}
 
+
+	/**
+	 * register pasban admin menu items
+	 *
+	 * @since    1.0.0
+	 */
+
+	 public function register_pasban_menu() {
+		//  wp_die('menu');
+		 add_menu_page(
+			 __('Pasban Security Scanner', 'pasban-security-scanner'),
+			 __('Pasban Scanner', 'pasban-security-scanner'),
+			 'manage_options',
+			 'manage_pasban_security',
+			 array($this, 'pasban_setting_page'),
+			 'dashicons-tagcloud',
+			 6
+		 );
+	 }
+
+
+	 /**
+	 * Display the settings page content for the page we have created.
+	 *
+	 * @since    1.0.0
+	 */
+	public static function pasban_setting_page() {
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/pasban-security-scanner-admin-display.php';
+
+	}
+
 }

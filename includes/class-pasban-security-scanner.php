@@ -153,6 +153,8 @@ class Pasban_Security_Scanner {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new Pasban_Security_Scanner_Admin( $this->get_plugin_name(), $this->get_version() );
+		// hook to add pasban menu page to admin area
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'register_pasban_menu' );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
