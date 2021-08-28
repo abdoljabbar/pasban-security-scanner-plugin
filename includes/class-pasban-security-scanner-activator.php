@@ -31,6 +31,7 @@ class Pasban_Security_Scanner_Activator {
 	 */
 	public static function activate() {
 
+
 	}
 
 }
