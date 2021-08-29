@@ -65,6 +65,7 @@ class Pasban_Security_Scanner_Admin {
 			return;
 		}
 
+		wp_enqueue_style( 'bootstrap-css', plugin_dir_url( __FILE__ ) . 'css/lib/bootstrap.min.css', array(), $this->version, 'all' );
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pasban-security-scanner-admin.css', array(), $this->version, 'all' );
 
 	}
@@ -80,6 +81,7 @@ class Pasban_Security_Scanner_Admin {
 		if (get_current_screen()->id !== 'toplevel_page_admin-pasban-security-scanner') {
 			return;
 		}
+		wp_enqueue_script( 'bootstrap-js', plugin_dir_url( __FILE__ ) . 'js/lib/bootstrap.min.js', array( 'jquery' ), $this->version, false );
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/pasban-security-scanner-admin.js', array( 'jquery' ), $this->version, false );
 
 	}

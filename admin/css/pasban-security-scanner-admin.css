@@ -7,10 +7,16 @@
     font-style: normal;
 }
 
+
+/* general style  */
+
+#pasban-content {
+    word-spacing: -15px;
+}
+
 .pasban-header h1 {
     font-family: 'arcaderegular';
     font-weight: normal;
-    word-spacing: 0px;
     color: #1b4332;
     font-size: 6em;
     text-align: center;
@@ -19,7 +25,8 @@
 .pasban-body P {
     font-size: 4rem;
     text-align: center;
-    margin-top: 140px;
+    color: #2d6a4f;
+    margin-top: 70px;
 }
 
 .pasban-body .mark-question {
@@ -38,4 +45,104 @@
     background-color: #d8f3dc;
     min-height: 1000px;
     font-family: 'arcaderegular';
+}
+
+
+/* style for ready section  */
+
+.pasban-ready-message {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.ready-button {
+    border-top: 5px solid #52b788;
+    border-bottom: 5px solid #52b788;
+    border-radius: 0;
+    margin-bottom: 25px;
+    overflow: visible;
+    position: relative;
+    width: 125px;
+    margin: 0 auto;
+}
+
+.ready-button:before,
+.ready-button:after {
+    content: "";
+    width: 5px;
+    background: #52b788;
+    position: absolute;
+    top: 0;
+    left: -5px;
+    bottom: 0;
+}
+
+.ready-button:after {
+    left: auto;
+    right: -5px;
+}
+
+.ready-button button {
+    font-size: 50px;
+    color: #40916c;
+}
+
+
+/* style for pasban scan result */
+
+.pasban-scan-result {
+    display: none;
+}
+
+.progress-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1c2647;
+    margin: 0 0 10px;
+}
+
+.progress {
+    height: 30px;
+    background: #fff;
+    border-top: 5px solid #2d6a4f;
+    border-bottom: 5px solid #2d6a4f;
+    border-radius: 0;
+    margin-bottom: 25px;
+    overflow: visible;
+    position: relative;
+}
+
+.progress:before,
+.progress:after {
+    content: "";
+    width: 5px;
+    background: #2d6a4f;
+    position: absolute;
+    top: 0;
+    left: -5px;
+    bottom: 0;
+}
+
+.progress:after {
+    left: auto;
+    right: -5px;
+}
+
+.progress .progress-bar {
+    border: none;
+    box-shadow: none;
+    -webkit-animation: 2s linear 0s normal none infinite running progress-bar-stripes, animate-positive 1s;
+    animation: 2s linear 0s normal none infinite running progress-bar-stripes, animate-positive 1s;
+}
+
+@-webkit-keyframes animate-positive {
+    0% {
+        width: 0;
+    }
+}
+
+@keyframes animate-positive {
+    0% {
+        width: 0;
+    }
 }
