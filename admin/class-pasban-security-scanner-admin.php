@@ -118,4 +118,19 @@ class Pasban_Security_Scanner_Admin {
 
 	}
 
+	/**
+	 * service add handle to start pasban scanner
+	 *
+	 * @since    1.0.0
+	 */
+	public static function pasban_start_scan_handler() {
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/service/class-pasban-service.php';
+
+		$pasban_service = new Pasban_Service();
+
+		$pasban_service->start();
+
+	}
+
 }

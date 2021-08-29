@@ -156,6 +156,10 @@ class Pasban_Security_Scanner {
 		// hook to add pasban menu page to admin area
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'register_pasban_menu' );
 
+		// hook to handle ajax of pasban scan
+		$this->loader->add_action('wp_ajax_Pasban_start_scan_action', $plugin_admin, 'pasban_start_scan_handler');
+
+
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
