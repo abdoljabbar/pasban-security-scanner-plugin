@@ -20,8 +20,109 @@ class Pasban_Service {
 	}
 
 	public function start()	 {
+		$this->wp_version_check();
+		$this->wp_theme_version_check();
+		$this->wp_plugin_version_check();
+		$this->wp_scan_check();
+		$this->wp_shodan_check();
+		$this->wp_login_check();
+		$this->wp_login_pass_check();
+		$this->wp_waf_check();
+		$this->wp_https_check();
+		$this->wp_user_admin_check();
+		$this->wp_content_access_check();
+		$this->wp_readme_access_check();
+		$this->wp_xmlrpc_access_check();
+		$this->wp_db_prefix_check();
+		$this->wp_db_prepare_check();
+		$this->wp_eval_check();
+		$this->wp_create_function_check();
+		$this->wp_xss_check();
+		$this->wp_nonce_check();
+		$this->wp_file_permission_check();
+	}
+
+	public function wp_version_check() {
 
 	}
+
+	public function wp_theme_version_check() {
+
+	}
+
+	public function wp_plugin_version_check() {
+
+	}
+
+	public function wp_scan_check() {
+
+	}
+
+	public function wp_shodan_check() {
+
+	}
+
+	public function wp_login_check() {
+
+	}
+
+	public function wp_login_pass_check() {
+
+	}
+
+	public function wp_waf_check() {
+
+	}
+
+	public function wp_user_admin_check() {
+
+	}
+
+	public function wp_content_access_check() {
+
+	}
+
+	public function wp_readme_access_check() {
+
+	}
+
+	public function wp_xmlrpc_access_check() {
+
+	}
+
+	public function wp_db_prefix_check() {
+
+	}
+
+	public function wp_db_prepare_check() {
+
+	}
+
+	public function wp_eval_check() {
+
+	}
+
+	public function wp_create_function_check() {
+
+	}
+
+	public function wp_xss_check() {
+
+	}
+
+	public function wp_nonce_check() {
+
+	}
+
+	public function wp_file_permission_check() {
+
+	}
+
+	public function wp_https_check() {
+
+	}
+
+
 
 
 }
