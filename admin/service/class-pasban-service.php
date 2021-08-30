@@ -40,6 +40,7 @@ class Pasban_Service {
 		$this->wp_xss_check();
 		$this->wp_nonce_check();
 		$this->wp_file_permission_check();
+		$this->wp_plugin_static_check();
 	}
 
 	public function wp_version_check() {
@@ -119,6 +120,10 @@ class Pasban_Service {
 	}
 
 	public function wp_https_check() {
+
+	}
+
+	public function wp_plugin_static_check() {
 
 	}
 
