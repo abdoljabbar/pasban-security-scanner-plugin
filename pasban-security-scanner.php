@@ -80,3 +80,6 @@ function run_pasban_security_scanner() {
 
 }
 run_pasban_security_scanner();
+
+// run autoloader
+require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
