@@ -15,14 +15,14 @@ namespace PasbanCore\Service;
 
 class PasbanService {
 
+
 	public function __construct()
 	{
 
 	}
 
 	public function start()	 {
-		echo 'we are here';
-		wp_die();
+		// todo add cron
 		$this->wp_version_check();
 		$this->wp_theme_version_check();
 		$this->wp_plugin_version_check();
@@ -47,7 +47,15 @@ class PasbanService {
 	}
 
 	public function wp_version_check() {
+		// todo add transient
+		$curren_version = get_bloginfo( 'version' );
+		$url = 'https://api.wordpress.org/core/version-check/1.7/';
+		$response = wp_remote_get($url);
 
+		$json = $response['body'];
+		$obj = json_decode($json);
+		$upgrade = $obj->offers[0];
+		echo $upgrade->version;
 	}
 
 	public function wp_theme_version_check() {

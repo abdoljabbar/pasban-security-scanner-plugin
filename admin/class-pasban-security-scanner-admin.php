@@ -140,6 +140,8 @@ class Pasban_Security_Scanner_Admin {
 
 		$pasban_service->start();
 
+		wp_die();
+
 	}
 
 }
