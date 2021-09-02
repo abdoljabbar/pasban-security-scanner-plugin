@@ -1,4 +1,5 @@
 <?php
+namespace PasbanCore\Service;
 
 /**
  * The Pasban service that handle scan functions.
@@ -12,7 +13,7 @@
  * @author     Abdoljabbar Bakhsahnde <jabbkh@gmail.com>
  */
 
-class Pasban_Service {
+class PasbanService {
 
 	public function __construct()
 	{
@@ -20,6 +21,8 @@ class Pasban_Service {
 	}
 
 	public function start()	 {
+		echo 'we are here';
+		wp_die();
 		$this->wp_version_check();
 		$this->wp_theme_version_check();
 		$this->wp_plugin_version_check();

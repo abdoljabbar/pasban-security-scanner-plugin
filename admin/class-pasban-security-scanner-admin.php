@@ -82,7 +82,13 @@ class Pasban_Security_Scanner_Admin {
 			return;
 		}
 		wp_enqueue_script( 'bootstrap-js', plugin_dir_url( __FILE__ ) . 'js/lib/bootstrap.min.js', array( 'jquery' ), $this->version, false );
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/pasban-security-scanner-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( 'pasban-security-admin-js', plugin_dir_url( __FILE__ ) . 'js/pasban-security-scanner-admin.js', array( 'jquery' ), $this->version, false );
+
+		// send data to js
+		$variable_to_js = array(
+			'nonce' => wp_create_nonce('start_scan_nonce') //for security
+		);
+		wp_localize_script('pasban-security-admin-js', 'scan_variable', $variable_to_js);
 
 	}
 
@@ -125,9 +131,12 @@ class Pasban_Security_Scanner_Admin {
 	 */
 	public static function pasban_start_scan_handler() {
 
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/service/class-pasban-service.php';
-
-		$pasban_service = new Pasban_Service();
+		$nonce = $_POST['nonce'];
+		// check nonce ===============================
+		if ( !isset( $nonce ) || !wp_verify_nonce( $nonce, 'start_scan_nonce' ) ) {
+			wp_die(-1);
+		}
+		$pasban_service = new \PasbanCore\Service\PasbanService;
 
 		$pasban_service->start();
 
