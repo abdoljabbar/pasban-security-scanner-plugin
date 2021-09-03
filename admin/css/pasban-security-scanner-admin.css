@@ -91,18 +91,21 @@
 /* style for pasban scan result */
 
 .pasban-scan-result {
+    width: 50%;
+    margin: 0 auto;
     display: none;
 }
 
 .progress-title {
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 700;
-    color: #1c2647;
+    color: black;
     margin: 0 0 10px;
+    word-spacing: 0;
 }
 
 .progress {
-    height: 30px;
+    height: 15px;
     background: #fff;
     border-top: 5px solid #2d6a4f;
     border-bottom: 5px solid #2d6a4f;
@@ -131,8 +134,8 @@
 .progress .progress-bar {
     border: none;
     box-shadow: none;
-    -webkit-animation: 2s linear 0s normal none infinite running progress-bar-stripes, animate-positive 1s;
-    animation: 2s linear 0s normal none infinite running progress-bar-stripes, animate-positive 1s;
+    -webkit-animation: 2s linear 0s normal none running progress-bar-stripes, animate-positive 1s;
+    animation: 2s linear 0s normal none running progress-bar-stripes, animate-positive 1s;
 }
 
 @-webkit-keyframes animate-positive {
@@ -145,4 +148,16 @@
     0% {
         width: 0;
     }
+}
+
+.passed {
+    color: green;
+}
+
+.failed {
+    color: red;
+}
+
+.progress-bar-danger {
+    background-color: #d9534f;
 }

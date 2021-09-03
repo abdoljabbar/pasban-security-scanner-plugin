@@ -15,6 +15,12 @@ namespace PasbanCore\Service;
 
 class PasbanService {
 
+	private $response_array = array(
+		'title'=> 'title',
+		'status'=> false,
+		'message' => 'message',
+	);
+
 
 	public function __construct()
 	{
@@ -47,7 +53,9 @@ class PasbanService {
 	}
 
 	public function wp_version_check() {
-		// todo add transient
+		// todo add transient ***
+		// todo transfer string to another file **
+		$this->response_array['title'] =  'wordpress version check';
 		$curren_version = get_bloginfo( 'version' );
 		$url = 'https://api.wordpress.org/core/version-check/1.7/';
 		$response = wp_remote_get($url);
@@ -55,10 +63,20 @@ class PasbanService {
 		$json = $response['body'];
 		$obj = json_decode($json);
 		$upgrade = $obj->offers[0];
-		echo $upgrade->version;
+
+		$last_version = $upgrade->version;
+
+		if ( $curren_version >=  $last_version ) {
+			// change status to true
+			$this->response_array['status'] = true;
+			wp_send_json_success( $this->response_array, 200 );
+		}
 	}
 
 	public function wp_theme_version_check() {
+		$this->response_array['title'] =  'active theme version check';
+		$theme = wp_get_theme();
+		var_dump($theme);
 
 	}
 
