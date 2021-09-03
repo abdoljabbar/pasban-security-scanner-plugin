@@ -134,8 +134,8 @@
 .progress .progress-bar {
     border: none;
     box-shadow: none;
-    -webkit-animation: 2s linear 0s normal none running progress-bar-stripes, animate-positive 1s;
-    animation: 2s linear 0s normal none running progress-bar-stripes, animate-positive 1s;
+    -webkit-animation: 2s linear 0s normal none infinite running progress-bar-stripes, animate-positive 1s;
+    animation: 2s linear 0s normal none infinite running progress-bar-stripes, animate-positive 1s;
 }
 
 @-webkit-keyframes animate-positive {

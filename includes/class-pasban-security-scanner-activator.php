@@ -31,7 +31,26 @@ class Pasban_Security_Scanner_Activator {
 	 */
 	public static function activate() {
 
+		global $wpdb;
+		$installed_ver = get_option( "jal_db_version" );
 
+		if ( $installed_ver != $jal_db_version ) {
+
+			$table_name = $wpdb->prefix . 'liveshoutbox';
+
+			$sql = "CREATE TABLE $table_name (
+				id mediumint(9) NOT NULL AUTO_INCREMENT,
+				time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+				name tinytext NOT NULL,
+				text text NOT NULL,
+				url varchar(100) DEFAULT '' NOT NULL,
+				PRIMARY KEY  (id)
+			);";
+
+			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+			dbDelta( $sql );
+
+			update_option( "jal_db_version", $jal_db_version );
 	}
 
 }

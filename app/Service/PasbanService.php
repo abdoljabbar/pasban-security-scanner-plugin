@@ -54,7 +54,7 @@ class PasbanService {
 
 	public function wp_version_check() {
 		// todo add transient ***
-		// todo transfer string to another file **
+		// todo transfer strings to another file **
 		$this->response_array['title'] =  'wordpress version check';
 		$curren_version = get_bloginfo( 'version' );
 		$url = 'https://api.wordpress.org/core/version-check/1.7/';
