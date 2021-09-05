@@ -1,6 +1,6 @@
 # Pasban Security Scanner
 
-Contributors: @jabbarbakhshande
+Contributors: jabbarbakhshande
 
 Tags: security, Vulnerable, bugs
 
