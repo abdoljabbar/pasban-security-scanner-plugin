@@ -24,7 +24,6 @@ class PasbanService {
 
 	public function __construct()
 	{
-
 	}
 
 	public function start()	 {

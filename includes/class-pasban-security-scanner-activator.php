@@ -20,37 +20,51 @@
  * @subpackage Pasban_Security_Scanner/includes
  * @author     Abdoljabbar Bakhsahnde <jabbkh@gmail.com>
  */
-class Pasban_Security_Scanner_Activator {
+class Pasban_Security_Scanner_Activator
+{
 
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function activate() {
+    /**
+     * Short Description. (use period)
+     *
+     * Long Description.
+     *
+     * @since    1.0.0
+     */
+    public static function activate()
+    {
+        global $wpdb;
+        $current_version = PASBAN_SECURITY_SCANNER_VERSION;
 
-		global $wpdb;
-		$installed_ver = get_option( "jal_db_version" );
+        $installed_version = get_option("pasban_scanner_version");
+		// check if we have installed version
+        if (!$installed_version) {
+            $table_name = $wpdb->prefix . 'pasban_scanner';
 
-		if ( $installed_ver != $jal_db_version ) {
-
-			$table_name = $wpdb->prefix . 'liveshoutbox';
-
-			$sql = "CREATE TABLE $table_name (
+			// create pasban_scanner table
+			// todo search about enum performance *
+            $sql = "CREATE TABLE $table_name (
 				id mediumint(9) NOT NULL AUTO_INCREMENT,
-				time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 				name tinytext NOT NULL,
-				text text NOT NULL,
-				url varchar(100) DEFAULT '' NOT NULL,
+				title tinytext NOT NULL,
+				status enum('done','inprogress','pending','failed') DEFAULT 'pending' NOT NULL,
+				progress tinyint(4),
+				result_status enum('passed','failed'),
+				result_detail text,
+				description text,
+				last_date datetime,
+				subscription enum('free','paid') DEFAULT 'free' NOT NULL,
+				priority enum('critical','high','normal','low'),
 				PRIMARY KEY  (id)
 			);";
 
-			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-			dbDelta( $sql );
 
-			update_option( "jal_db_version", $jal_db_version );
-	}
+            require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+            $query_result = dbDelta($sql);
 
+			// check if we don't have pasban_scanner_version option then create it otherwise update
+            if ( !update_option( 'pasban_scanner_version', $current_version ) ) {
+                add_option('pasban_scanner_version', $current_version);
+            }
+        }
+    }
 }
